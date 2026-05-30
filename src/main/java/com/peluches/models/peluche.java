@@ -3,7 +3,7 @@ package com.peluches.models;
 import jakarta.persistence.*;
 
 @Entity
-public class peluche {
+public class Peluche {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +15,9 @@ public class peluche {
 
     @ManyToOne
     @JoinColumn(name="categoria_id")
-    private categoria categoria;
+    private Categoria categoria;
 
-    public peluche() {
+    public Peluche() {
     }
 
     public Long getId() {
@@ -44,11 +44,11 @@ public class peluche {
         this.precio = precio;
     }
 
-    public categoria getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 }

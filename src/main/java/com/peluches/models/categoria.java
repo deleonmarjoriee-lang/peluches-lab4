@@ -3,7 +3,7 @@ package com.peluches.models;
 import jakarta.persistence.*;
 
 @Entity
-public class categoria {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +11,7 @@ public class categoria {
 
     private String nombre;
 
-    public categoria() {
+    public Categoria() {
     }
 
     public Long getId() {
