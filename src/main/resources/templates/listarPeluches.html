@@ -3,26 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <title>Peluches</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background-color:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.2);
+    width:1000px;
+}
+
+h2{
+    text-align:center;
+    color:#333;
+}
+
+.btn{
+    background:#28a745;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#218838;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#007BFF;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    text-align:center;
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f2f2f2;
+}
+
+.editar{
+    background:#ffc107;
+    color:black;
+    padding:8px 12px;
+    border-radius:6px;
+    text-decoration:none;
+    margin-right:5px;
+}
+
+.editar:hover{
+    background:#e0a800;
+}
+
+.eliminar{
+    background:#dc3545;
+    color:white;
+    padding:8px 12px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.eliminar:hover{
+    background:#c82333;
+}
+
+.volver{
+    display:inline-block;
+    margin-top:20px;
+    background:#6c757d;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+.volver:hover{
+    background:#5a6268;
+}
+
+</style>
+
 </head>
 <body>
 
-<h2>Listado Peluches</h2>
+<div class="container">
 
-<table border="1">
+    <h2>🧸 Listado de Peluches</h2>
 
-<tr>
-<th>ID</th>
-<th>Nombre</th>
-<th>Precio</th>
-</tr>
+    <a href="/peluches/nuevo" class="btn">
+        ➕ Nuevo Peluche
+    </a>
 
-<tr th:each="p : ${peluches}">
-<td th:text="${p.id}"></td>
-<td th:text="${p.nombre}"></td>
-<td th:text="${p.precio}"></td>
-</tr>
+    <table>
 
-</table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+
+        <tr th:each="p : ${peluches}">
+
+            <td th:text="${p.id}"></td>
+
+            <td th:text="${p.nombre}"></td>
+
+            <td th:text="${'$ ' + p.precio}"></td>
+
+            <td th:text="${p.categoria != null ? p.categoria.nombre : 'Sin Categoría'}"></td>
+
+            <td>
+
+                <a class="editar"
+                   th:href="@{/peluches/editar/{id}(id=${p.id})}">
+                    ✏️ Editar
+                </a>
+
+                <a class="eliminar"
+                   th:href="@{/peluches/eliminar/{id}(id=${p.id})}">
+                    🗑️ Eliminar
+                </a>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <a href="/" class="volver">
+        ⬅ Volver al Inicio
+    </a>
+
+</div>
 
 </body>
 </html>

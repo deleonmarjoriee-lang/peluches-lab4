@@ -1,18 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Inicio</title>
+<title>Tienda de Peluches</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#74ebd5,#9face6);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+    text-align:center;
+    width:500px;
+}
+
+h1{
+    color:#333;
+    margin-bottom:10px;
+}
+
+p{
+    color:#666;
+    margin-bottom:30px;
+}
+
+.botones{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.categoria{
+    background:#007BFF;
+}
+
+.categoria:hover{
+    background:#0056b3;
+}
+
+.peluche{
+    background:#28a745;
+}
+
+.peluche:hover{
+    background:#1e7e34;
+}
+
+.icono{
+    font-size:70px;
+    margin-bottom:10px;
+}
+
+</style>
+
 </head>
 <body>
 
-<h1>Tienda de Peluches</h1>
+<div class="container">
 
-<a href="/categorias">Categorias</a>
+    <div class="icono">
+        🧸
+    </div>
 
-<br><br>
+    <h1>Tienda de Peluches</h1>
 
-<a href="/peluches">Peluches</a>
+    <p>
+        Sistema de gestión de categorías y peluches.
+        Administra productos, categorías y precios de forma sencilla.
+    </p>
+
+    <div class="botones">
+
+        <a href="/categorias" class="btn categoria">
+            📂 Categorías
+        </a>
+
+        <a href="/peluches" class="btn peluche">
+            🧸 Peluches
+        </a>
+
+    </div>
+
+</div>
 
 </body>
 </html>
